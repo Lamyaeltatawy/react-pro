@@ -2,6 +2,7 @@ import React from "react";
 import ExpenseItem from "./components/ExpenseItem.js";
 import Card from './components/card.js';
 import Expenses from "./components/Expenses.js";
+import NewExpense from "./components/NewExpense/NewExpense.js";
 const App=()=> {
   const expenses = [
     {
@@ -31,6 +32,7 @@ const App=()=> {
   return (
     <div>
     <h2>let's start</h2>
+    <NewExpense/>
     <Expenses items={expenses}/>
     </div>
   );
