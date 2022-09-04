@@ -1,7 +1,20 @@
-
 import './ExpenseForm.css';
-import React from "react";
+import React,{useState} from "react";
+
 const ExpenseForm =()=>{
+    const [enteredTitle,setEnteredTitle]=useState('');
+    const [enteredAmount,setEnteredAmount]=useState('');
+    const [enteredDate,setEnteredDate]=useState('');
+ const titleChangeHandler=(event)=>{
+    setEnteredTitle(event.target.value);
+ };
+ const amountChangeHandler=(event)=>{
+    setEnteredAmount(event.target.value);
+ };
+ const dateChangeHandler=(event)=>{
+    setEnteredDate(event.target.value);
+ };
+
 
 
 
@@ -9,16 +22,16 @@ const ExpenseForm =()=>{
         <form>
             <div className='new-expense__controls'>
                 <div className='new-expense__control'></div>
-                 <label>title</label>
-                 <input type='text'/>
+                 <label className='new-expense__control label'>title</label>
+                 <input className='new-expense__control input' type='text' onChange={titleChangeHandler} />
                 </div>
                 <div className='new-expense__control'>
-                 <label>Amount</label>
-                 <input type='number' min="0.01" step='0.01'/>
+                 <label className='new-expense__control label'>Amount</label>
+                 <input className='new-expense__control input' type='number' min="0.01" step='0.01' onChange={amountChangeHandler}/>
                 <div/>
                 <div className='new-expense__control'>
-                 <label>date</label>
-                 <input type='date' min='2019-01-01' max='2022-12-30'/>
+                 <label className='new-expense__control label'>date</label>
+                 <input className='new-expense__control input' type='date' min='2019-01-01' max='2022-12-30' onChange={dateChangeHandler}/>
                 </div>   
             </div>
             <div className='new-expense__actions'>
@@ -26,6 +39,6 @@ const ExpenseForm =()=>{
             </div>
             
         </form>
-);
+    );
 };
 export default ExpenseForm;
