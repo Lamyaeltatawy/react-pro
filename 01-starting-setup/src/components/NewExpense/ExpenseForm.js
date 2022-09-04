@@ -1,7 +1,7 @@
 import './ExpenseForm.css';
 import React,{useState} from "react";
 
-const ExpenseForm =()=>{
+const ExpenseForm =(props)=>{
     const [enteredTitle,setEnteredTitle]=useState('');
     const [enteredAmount,setEnteredAmount]=useState('');
     const [enteredDate,setEnteredDate]=useState('');
@@ -13,18 +13,20 @@ const ExpenseForm =()=>{
  };
  const dateChangeHandler=(event)=>{
     setEnteredDate(event.target.value);
-   const expenseData={
+ };  
+    const expenseData={
     title:enteredTitle,
     amount:enteredAmount,
     date:new Date(enteredDate),
-   }; 
+    
 
-console.log(expenseData);   
+//console.log(expenseData);   
  };
 
 
 const submitHandler=(event)=>{
     event.preventDefault(); //prevent form to reload after submit
+    props.onSaveExpenseData(expenseData);
     setEnteredTitle('');
     setEnteredAmount('');
     setEnteredDate('');
