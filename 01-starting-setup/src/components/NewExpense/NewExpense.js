@@ -13,7 +13,7 @@ const onSaveExpenseData=(enteredExpenseData)=>{
    id:Math.random().toString()
   };
 
-  props.onAddExpense()
+  props.onAddExpense(expenseData);
 };
 
 
